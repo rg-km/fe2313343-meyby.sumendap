@@ -12,8 +12,14 @@
 // Full Problem: https://www.hackerrank.com/challenges/birthday-cake-candles/problem
 
 function birthdayCakeCandles(candles) {
-  // Write your code here
-	// TODO: answer here
+  var max_candles = Math.max(...candles) 
+  var number_candles = 0
+  for(var i=0; i<candles.length; i++){
+      if(candles[i] == max_candles){
+          number_candles = number_candles + 1   
+      }
+  }
+  return number_candles;
 }
 
 function main() {

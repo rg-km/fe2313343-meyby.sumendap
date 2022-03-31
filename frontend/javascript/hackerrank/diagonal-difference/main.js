@@ -13,7 +13,14 @@
 
 function diagonalDifference(arr) {
   // Write your code here
-  // TODO: answer here
+let result =[0,0]
+for (let i=0; i<arr.length; i++){
+  let a= arr [i] [0+i]
+      b= arr [i] [arr.length-1-i]
+      result = [result[0] + a, result[i]+b]
+
+} 
+return Math.abs(result[0]-result[i])
 }
 
 function main() {

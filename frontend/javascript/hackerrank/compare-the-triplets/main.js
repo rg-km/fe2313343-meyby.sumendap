@@ -15,9 +15,25 @@
 // Full Problem: https://www.hackerrank.com/challenges/compare-the-triplets/problem
 
 function compareTriplets(a, b) {
-  // Write your code here
-  // TODO: answer here
-}
+    let points = [];
+    let bob= 0;
+    let alice = 0;
+  
+    for(let i =0; i < a.length; i++){
+      if(a[i] > b[i]){
+        alice++;
+      }else  if(a[i] < b[i]){
+        bob++;
+      }
+    }
+  
+    points = [alice, bob]
+  
+    return points;
+    
+  }
+  
+
 function main() {
 
   const a = [5, 6, 7] // override input
@@ -25,7 +41,7 @@ function main() {
 
   const result = compareTriplets(a, b);
 
-  console.log(result)
+  console.log(compareTriplets([5, 6, 7], [3, 6,19]));
 }
 
 main() // execute program
