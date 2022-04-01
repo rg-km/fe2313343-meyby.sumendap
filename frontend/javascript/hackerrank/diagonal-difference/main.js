@@ -11,16 +11,20 @@
 
 // Full Problem: https://www.hackerrank.com/challenges/diagonal-difference/problem
 
-function diagonalDifference(arr) {
+function diagonalDifference(scores) {
   // Write your code here
-let result =[0,0]
-for (let i=0; i<arr.length; i++){
-  let a= arr [i] [0+i]
-      b= arr [i] [arr.length-1-i]
-      result = [result[0] + a, result[i]+b]
-
-} 
-return Math.abs(result[0]-result[i])
+  const length = scores.length;
+  let diagonal1 = 0, 
+       diagonal2 = 0;
+  
+  for (let i = 0; i < scores.length; i++) {
+     
+      diagonal1 += scores[i][i];
+      
+      diagonal2 += scores[length - 1 - i][i]
+  }
+  // return absolute difference value.
+  return Math.abs(diagonal1 - diagonal2); 
 }
 
 function main() {

@@ -3,27 +3,32 @@
 // - Difficulty: Easy
 
 // Complete the 'miniMaxSum' function below.
- function miniMaxSum(arr) {
-  let max = arr [0];
-  let min = arr [0];
-  let sum = 0;
-  for (let i = 0; i < 5; i++) {
-    if(max < arr[i]) {
-       max = arr[i];
+function miniMaxSum(arr) {
+  // Write your code here
+  // TODO: answer here
+  let arrSum = [];
+  let couter = 0;
+  for (let i = 0; i < arr.length; i++) {
+    let sum = 0;
+    for (let j = 0; j < arr.length; j++) {
+      if (couter !== j)
+        sum += arr[j];
     }
-    if (min > arr[i]) {
-        min = arr[i];
-    }
-    sum += arr[i];
+    couter++;
+    arrSum.push(sum);
   }
-  let maxSum = sum - min;
-  let minSum = sum - max;
-  console.log(minSum + " " + maxSum);
-  
+  let min = Math.min(...arrSum);
+  let max = Math.max(...arrSum);
+  return min + ' ' + max 
 }
-
 function main() {
-  const arr = readLine().split (" ").map(arrTemp => parseInt(arrTemp,10))
-
-  miniMaxSum(arr);
+  //arr = readLine().split(' ');
+  //arr = arr.map(Number);
+  var arr = [1, 2, 3, 4, 5]; // override input
+  let result = miniMaxSum(arr);
+  console.log(result)
 }
+
+main(); // execute program
+
+module.exports = miniMaxSum

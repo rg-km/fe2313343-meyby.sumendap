@@ -9,30 +9,25 @@
  * The function accepts INTEGER_ARRAY scores as parameter.
  */
 
+
+// Full Problem: https://www.hackerrank.com/challenges/breaking-best-and-worst-records/problem
+
 function breakingRecords(scores) {
-  let currentMax;
-  let currentMin;
+  // Write your code here
+  // TODO: answer here
+  let highScore = scores[0], lowScore = scores[0], highCount = 0, lowCount = 0;
 
-  let minCounter = 0;
-  let maxCounter = 0;
-
-  for(const score of scores){
-    if(currentMax === null){
-      currentMax = score;
-      currentMin = score;
+    for (let i = 1; i < scores.length; i++) {
+        if (scores[i] > highScore) {
+            highScore = scores[i];
+            highCount += 1;
+        } else if (scores[i] < lowScore) {
+            lowScore = scores[i];
+            lowCount += 1;
+        }
     }
 
-    if(score > currentMax){
-      currentMax = score;
-      maxCounter += 1;
-    }else if (score < currentMin){
-      //console.log('this ran')
-      currentMin = score;
-      minCounter += 1;
-    }
-  }
-
-  return [maxCounter, minCounter]
+    return [highCount, lowCount];
 }
 
 function main() {

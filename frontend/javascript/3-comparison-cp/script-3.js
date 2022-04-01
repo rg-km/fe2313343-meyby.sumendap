@@ -9,3 +9,20 @@
 const score = parseInt(prompt("Masukan nilai: "));
 
 // TODO: answer here
+switch (true) {
+    case score >= 91:
+    console.log('Nilai A')
+    break;
+    case score >= 71:
+        console.log('Nilai B')
+        break;
+        case score >= 61:
+            console.log('Nilai C')
+            break;
+            case score >= 51:
+                console.log('Nilai D')
+                break;
+                case score <= 50:
+                    console.log('Nilai E')
+                    break;
+}

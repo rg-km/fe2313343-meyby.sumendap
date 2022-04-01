@@ -11,6 +11,11 @@
 
 function checkPalindrome(string) {
     // TODO: answer here
+    let value ='';
+    for (let i = string.length - 1; i >=0 ; i--){
+        value += string[i];
+    }
+    return value === string;
 }
 
 // masukan teks

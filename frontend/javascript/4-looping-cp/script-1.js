@@ -15,3 +15,16 @@
 const counter = parseInt(prompt("Masukan jumlah bilangan yang ingin dicek: "));
 
 // TODO: answer here
+for (var x = 1; x <= counter; x++) {
+    if (x % 15 === 0){
+        console.log(x + "kelipatan 3 dan 5");
+    }
+    else if ( x % 3 === 0) {
+        console.log(x + "merupakan kelipatan 3");
+    }else if ( x % 5 === 0) {
+        console.log(x + "merupakan kelipatan 5");
+
+    }else{
+        console.log(x + "bukan kelipatan 3 dan 5");
+    }
+}
