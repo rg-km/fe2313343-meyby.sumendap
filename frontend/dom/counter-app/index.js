@@ -1,25 +1,15 @@
-let number = document.getElementById('number')
-let addbtn = document.getElementsByClassName('btn-add')[0]
-let subtractbtn = document.getElementsByClassName('btn-subtract')[0]
-let message = document.getElementsByClassName('message')[0]
+let add = document.getElementById('increment');
+let remove = document.getElementById('decrement');
 
-addbtn.addEventListener('click', addCounter)
-subtractbtn.addEventListener('click', subtractCounter)
+let int = document.getElementById('Number');
+let integer = 0;
 
+add.addEventListener('click', function() {
+  integer +=1;
+  int.innerHTML = integer;
+})
 
-function addCounter() {
-  number.innerHTML = parseInt(number.innerHTML) + 1
-}
-
-function subtractCounter() {
-  if (number.innerHTML == 0) {
-    message.innerHTML = "Oops! you reach the min value!"
-    setTimeout(clearMessage, '3000')
-  } else if (number.innerHTML > 0) {
-    number.innerHTML = parseInt(number.innerHTML) - 1
-  }
-}
-
-function clearMessage() {
-  message.innerHTML = ''
-}
+remove.addEventListener('click',function(){
+  integer -= 1;
+  int.innerHTML = integer;
+})

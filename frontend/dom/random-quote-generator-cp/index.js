@@ -172,12 +172,11 @@ var quotes = [
 ];
 
 // TODO: answer here
+document.getElementById('generate').addEventListener('click',() => {
+	let authors =Object.keys(quotes);
+	let author = authors[Math.floor(Math.random() * authors.length)];
 
-function getQuote() {
-	// TODO: answer here
-}
+	document.getElementById('quote').innerHTML = quote;
+	document.getElementById('author').innerHTML = author;
+})
 
-
-function displayQuote() {
-	// TODO: answer here
-}

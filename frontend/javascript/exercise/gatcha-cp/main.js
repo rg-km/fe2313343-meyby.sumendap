@@ -10,15 +10,41 @@
  */
 
 // PSEUDOCODE:
-// TODO: answer here
+/* 
+switch (button){
+  case 1:
+    return "cobalagi ya";
+    case 2:
+      return "selamat kamu mendapatkan kupon sebanyak 5";
+      case 3:
+        return "selamat kamu mendapatkan kupon sebanyak 15";
+        case 4:
+          return "selamat kamu mendapatkan kupon sebanyak 50";
+          case 5:
+          return "selamat kamu mendapatkan kupon sebanyak 100";
+      }
+*/
 
+// TODO: answer here
 function gatcha(button) {
   // TODO: answer here
+  switch (button) {
+    case 1:
+      return "coba lagi ya";
+    case 2:
+      return "selamat kamu mendapatkan kupon sebanyak 5";
+    case 3:
+      return "selamat kamu mendapatkan kupon sebanyak 15";
+    case 4:
+      return "selamat kamu mendapatkan kupon sebanyak 50";
+    case 5:
+      return "selamat kamu mendapatkan kupon sebanyak 100";
+  }
 }
-
 // Create variable button here
+var button = 1
 // TODO: answer here
-
-console.log(gatcha(button))
+console.log(gatcha(button));
+//console.log(Gatcha(button));
 
 module.exports = gatcha

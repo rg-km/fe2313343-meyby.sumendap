@@ -8,8 +8,16 @@
 
 function angkaPalindrome(num) {
   // TODO: answer here
+  let IncrementNum = num + 1;
+  while (true){
+  let IncrementtoString = IncrementNum.toString();
+  let reversenum = IncrementtoString.split('').reverse().join('');
+  if(IncrementtoString === reversenum){
+  return IncrementNum;
 }
-
+  IncrementNum++;
+  }
+}
 console.log(angkaPalindrome(10)); //11
 console.log(angkaPalindrome(17)); //22
 console.log(angkaPalindrome(175)); //181
