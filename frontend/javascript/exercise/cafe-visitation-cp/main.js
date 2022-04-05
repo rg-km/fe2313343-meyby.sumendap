@@ -16,6 +16,22 @@
 
 
 // PSEUDOCODE :
+
+/*if ( nama === '' ) { // jika nama kosong
+  return ('Anda tidak boleh masuk!'); // print
+} else{
+  if ( uang < juice ) { // jika uang kurang dari juice
+    return ('Uang tidak cukup. Anda harus pulang.'); // print
+  }
+  else if ( usia < 17 ) { // jika usia kurang dari 17 tahun
+    return (`Anda bisa pesan jus. Sisa uang anda:  ${uang - jus}`); // print
+}else{
+  return (`Anda bisa pesan latte. Sisa uang anda: ${uang - latte}`); // print
+}
+
+}*/
+
+
 // TODO: answer here
 
 function ruangCafe(name, age, money) {
@@ -23,9 +39,21 @@ function ruangCafe(name, age, money) {
   const latte = 300000;
 
   // TODO: answer here
-}
+  if (name === "") {
+    return "Anda tidak boleh masuk!"; 
+  } else {
+    if (money < juice) {
+      return "Uang tidak cukup. Anda harus pulang.";
+    } else if (age < 17) {
+      return `Anda bisa pesan juice. Sisa uang anda: ${money - juice}`;
+    } else {
+      return `Anda bisa pesan latte. Sisa uang anda: ${money - latte}`;
+    }
+  }
 
-console.log(ruangCafe('', 21, 2000000))
+  }
+
+console.log(ruangCafe('', 21, 2000000));
 console.log(ruangCafe('Dito', 16, 1000000))
 console.log(ruangCafe('Adit', 11, 9000))
 console.log(ruangCafe('Fauzan', 30, 999999))

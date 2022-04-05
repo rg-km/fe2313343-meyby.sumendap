@@ -19,5 +19,11 @@
 
 function twoSum(nums, target) {
   // Tulis kode di sini
-  // TODO: answer here
+ var nums = [2,7,11,15] 
+ var target = 9
+ var Output = nums [0] + nums [1] 
+ // TODO: answer here
+  console.log(Output);
+
+
 };
