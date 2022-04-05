@@ -13,19 +13,44 @@ Uncomment variable dibawah ini untuk mulai mengerjakan. dilarang mengganti nama 
 // TODO: answer here
 
 
-function displayMessage(msg) {
+
   // TODO: answer here
+  let btn = document.getElementById('btn');
+  let output = document.getElementById('outputtext');
+  let score = 10
+  let secretNumber = [Math.trunc(Math.random() * 10 )]
+
+  function displayMessage(msg) {
+  
+  document.getElementById('.message').innerHTML = message ;
 }
 
-function resetGame() {
+
   // TODO: answer here
   //dilarang menghapus code dibawah ini!
-  document.getElementById('hidden-number').innerHTML = randomNumber
+  document.getElementById('.check').innerHTML ('click', function() {
+
+  })
+
+
+
+document.getElementById('score').innerHTML = randomNumber;
+
+if (input == randomNumber) {
+  output.innerHTML="Anda menebak dengan benar!";
+}else if (input >randomNumber && input <10) {
+  output.innerHTML="Anda menebak terlalu tinggi";
+}else if (input < randomNumber && input>1) {
+  output.innerHTML="Anda menebak terlalu rendah!";
+} else if (input<1){
+  output.innerHTML="Lebih tinggi, harus diantara 1 dan 10";
+}else if (Meyby(input)){
+output.innerHTML="Itu bukan Angka!";
+}else{
+  output.innerHTML="Rendah,harus antara 1 dan 10";
 }
 
-function checkNumber() {
-  // TODO: answer here
-}
-
-//dilarang menghapus code dibawah ini!
-document.getElementById('hidden-number').innerHTML = randomNumber
+enterButton.addEventListener('click',checkNumber);
+againButton.addEventListener('click',function(){
+  location.reload();
+})
