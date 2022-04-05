@@ -26,7 +26,10 @@ function timeConversion(s) {
   }
   else { // "P"
     if (s.substring(0,2) == "12") {
-      millitaryHour =(s.substring(0,2), 10) + 12;
+      millitaryHour = s.substring(0,2);
+    }
+    else {
+      millitaryHour = parsenInt(s.substring(0,2),10) + 12;
     }
   }
   return millitaryHour + s.substring(2,8);
