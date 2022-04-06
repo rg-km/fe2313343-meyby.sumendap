@@ -24,18 +24,12 @@ Uncomment variable dibawah ini untuk mulai mengerjakan. dilarang mengganti nama 
   
   document.getElementById('.message').innerHTML = message ;
 }
-
-
-  // TODO: answer here
-  //dilarang menghapus code dibawah ini!
+ 
   document.getElementById('.check').innerHTML ('click', function() {
 
   })
 
-
-
 document.getElementById('score').innerHTML = randomNumber;
-
 if (input == randomNumber) {
   output.innerHTML="Anda menebak dengan benar!";
 }else if (input >randomNumber && input <10) {
