@@ -24,7 +24,7 @@ Uncomment variable dibawah ini untuk mulai mengerjakan. dilarang mengganti nama 
   
   document.getElementById('.message').innerHTML = message ;
 }
-
+ 
   document.getElementById('.check').innerHTML ('click', function() {
 
   })
