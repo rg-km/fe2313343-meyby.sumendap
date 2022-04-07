@@ -2,11 +2,11 @@
 Uncomment variable dibawah ini untuk mulai mengerjakan. dilarang mengganti nama variable yang dibuat.
 */
 
-// let quote = element untuk menampilkan quote
-// let author = element untuk menampilkan author
-// let citation = element untuk menampilkan citation
-// let year = element untuk menampilkan year
-// let button = tombol untuk melakuan generate random quote
+let quote 
+let author 
+let citation 
+let year 
+let button = document.getElementsByClassName('btn')[0];
 
 var quotes = [
 	{
@@ -172,11 +172,24 @@ var quotes = [
 ];
 
 // TODO: answer here
-document.getElementById('generate').addEventListener('click',() => {
-	let authors =Object.keys(quotes);
-	let author = authors[Math.floor(Math.random() * authors.length)];
+//let button = document.getElementsByClassName('btn');
+button.addEventListener('click', displayQuote);
 
-	document.getElementById('quote').innerHTML = quote;
-	document.getElementById('author').innerHTML = author;
-})
+function getQuote() {
+  // TODO: answer here
+  var panjang = quotes.length;
+  var random = Math.floor(Math.random() * panjang);
 
+  return random;
+}
+
+function displayQuote() {
+  // TODO: answer here
+  random = getQuote();
+  document.getElementById('random-quote').innerHTML = quotes[random].quote;
+  document.getElementsByClassName('author')[0].innerHTML = quotes[random].author;
+  document.getElementsByClassName('citation')[0].innerHTML = typeof quotes[random].citation == 'undefined' ? '' : quotes[random].citation;
+  document.getElementsByClassName('year')[0].innerHTML = typeof quotes[random].year == 'undefined' ? '' : quotes[random].year;
+
+  return;
+}
