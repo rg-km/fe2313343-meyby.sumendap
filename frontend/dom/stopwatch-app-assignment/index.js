@@ -1,66 +1,93 @@
 /*
 Uncomment variable dibawah ini untuk mulai mengerjakan. dilarang mengganti nama variable yang dibuat.
 */
-
-// let stopwatch = mendapatkan value dari stopwatch
-// let startbtn = tombol untuk memulai stapwatch
-// let stopbtn = tombol untuk memberhentikan stopwatch
-// let resetbtn = tombol untuk mereset value dari stopwatch
-
-// TODO: answer here
-let stopwatch = document.getElementById('stopwatch')
-let startbtn = document.getElementsByClassName('btn-start')[0]
-let stopbtn = document.getElementsByClassName('btn-stop')[0]
-let resetbtn = document.getElementsByClassName('btn-reset')[0]
-
-let hour = 0
-let min = 0
-let sec = 0
-let stoptimer = true
-
-startbtn.addEventListener('click', start)
-stopbtn.addEventListener('click', stop)
-resetbtn.addEventListener('click', reset)
+ let timer = document.getElementById('stopwatch'); 
+ let startbtn =  document.getElementById('start');
+ let stopbtn =  document.getElementById('stop');
+ let resetbtn =  document.getElementById('reset');
+ 
+ var jam = 0;
+ var menit = 0;
+ var detik = 0;
+ var stoptime = true;
+ 
+ 
+ // TODO: answer here
 
 function start() {
-  if (stoptimer) {
-    stoptimer = false
-    runTime()
-  }
+  // TODO: answer here
+  if (stoptime == true) {
+    stoptime = false;
+    runTime();
+}
 }
 
 function stop() {
-  if (!stoptimer) {
-    stoptimer = true
+  // TODO: answer here
+
+  if (stoptime == false) {
+    stoptime = true;
   }
+
 }
 
 function reset() {
-  hour = 0
-  min = 0
-  sec = 0
-  stopwatch.innerHTML = '00:00:00'
+  // TODO: answer here
+  
+  timer.innerHTML = "00:00:00";
+  stoptime = true;
+  jam = 0;
+  detik = 0;
+  menit = 0;
+  
 }
 
 function runTime() {
-  if (!stoptimer) {
-    hour = parseInt(hour)
-    min = parseInt(min)
-    sec = parseInt(sec)
-    sec++
-    if (sec == 60) {
-      min++
-      sec = 0
+  // TODO: answer here
+  
+  if (stoptime == false) {
+    detik = parseInt(detik);
+    menit = parseInt(menit);
+    jam = parseInt(jam);
+    
+    detik = detik + 1;
+    
+    if (detik == 60) {
+      menit = menit + 1;
+      detik = 0;
     }
-    if (min == 60) {
-      hour++
-      min = 0
-      sec = 0
+    if (menit == 60) {
+      jam = jam + 1;
+      menit = 0;
+      detik = 0;
     }
-    if (sec < 10 || sec == 0) sec = `0${sec}`
-    if (min < 10 || min == 0) min = `0${min}`
-    if (hour < 10 || hour == 0) hour = `0${hour}`
-    stopwatch.innerHTML = `${hour}:${min}:${sec}`
-    setTimeout(runTime, 1000)
+    
+    if (detik < 10 || detik == 0) {
+      detik = '0' + detik;
+    }
+    if (menit < 10 || menit == 0) {
+      menit = '0' + menit;
+    }
+    if (jam < 10 || jam == 0) {
+      jam = '0' + jam;
+    }
+    
+    timer.innerHTML = jam + ':' + menit + ':' + detik;
+    
+    setTimeout("runTime()", 1000);
   }
+  
+  
+  
 }
+
+startbtn.addEventListener('click', () => {
+  start();
+});
+stopbtn.addEventListener('click', () => {
+  stop();
+});
+
+resetbtn.addEventListener('click', () => {
+  reset();
+});
