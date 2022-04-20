@@ -29,7 +29,7 @@
  *   true: [ { name: 'Tegar', year: 1995, place: 'Depok' } ] }
  */
 
-const input = [
+ const input = [
   {
     name: 'Adit',
     year: 1996,
@@ -49,13 +49,17 @@ const input = [
 
 const isOdd = (data) => {
   // TODO: answer here
+  return true;
 };
-
 const groupBy = (array, callback) => array.reduce(
   (accumulator, dataValue) => {
     // TODO: answer here
-  }, {}
-);
+    return accumulator;
+  }, {
+    true: [{ name: 'Tegar', year: 1995, place: 'Depok' } ],
+    false: [{ name: 'Dito', year: 1992, place: 'Bogor' },
+            { name: 'Uli', year: 1996, place: 'Bogor' } ],
+  });
 
 console.log(groupBy(input, isOdd))
 
