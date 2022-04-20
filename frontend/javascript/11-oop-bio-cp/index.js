@@ -13,6 +13,38 @@ class Person {
   }
   
   // TODO: answer here
+  get  getName(){
+    return this.name;
+  }
+
+  get getAge(){
+    return this.age;
+  }
+
+  get getJob(){
+    return this.job;
+  }
+  //setter method
+  set setName(ubahNama){
+    this.name = ubahNama;
+  }
+  set setAge(ubahAge){
+    this.age = ubahAge;
+  }
+  set setJob(ubahJob){
+    this.job = ubahJob;
+  }
 }
 
+let getter = new Person("Meyby",12, "Student");
+//getter
+console.log(getter)
+
+//setter
+
+getter.setName = "Shintha";
+getter.setAge = 20;
+getter.setJob = "Dosen";
+
+console.log(getter)
 module.exports = Person
