@@ -3,7 +3,7 @@
  * 
  * Input: 1 // Karakter Id.
  * Output: "Luke Skywalker, memiliki tinggi 175cm dan lahir pada tahun 19BBY"
- * 
+ *  
  * Untuk informasi yang lebih lengkap mengenai endpoint yang digunakan, silahkah akses https://swapi.dev/documentation#people
  * 
  * Gunakan keyword async/await untuk menyelesaikan fungsi ini.
@@ -41,6 +41,9 @@
  
  async function getDataPeopleById(id) {
    // TODO: answer here
+   const data =await getStarWarsData('https://swapi.dev/api/people/${id}');
+   const {name, height,birth_year} = JSON.parse(data);
+   return '${name}, memiliki tinggi ${height}cm dan lahir pada tahun ${birth_year}' ;
  }
 
  module.exports = {
