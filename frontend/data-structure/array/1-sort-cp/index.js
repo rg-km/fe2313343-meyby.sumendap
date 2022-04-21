@@ -13,17 +13,16 @@
 // [1,2,3,4,5] -> [2,3,4,5,1] -> [3,4,5,1,2] -> [4,5,1,2,3] -> [5,1,2,3,4]
 
 function sort(arr) {
-    return arr // TODO: replace this
+    return arr.sort(); // TODO: replace this
 }
 
 function rotateLeft(d, arr) {
-    let length =arr.length
-    let result = arr.slice(d,length);
-    
-    for(let i = 0; i < d && i < length; i++) {
-        result.push(arr[i])
+    while(d > 0){
+        let temp = arr.shift();
+        arr.push(temp);
+        d --;
     }
-    return result // TODO: replace this
+    return arr; // TODO: replace this
 }
 
 let nums = [4, 5, 2, 1, 3]
