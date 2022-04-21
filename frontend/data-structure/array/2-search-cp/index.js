@@ -1,5 +1,14 @@
 function searchMatch(arr1, arr2) {
     let result = [];
+    let arrBaru = arr1.concat(arr2);
+
+    for(let i = 0; i < arrBaru.length; i++) {
+   for (let j = i+1; j < arrBaru.length; j++) {
+       if(arrBaru[i] == arrBaru[j]){
+           result.push(arrBaru[j]);
+       }
+   }
+}
     return result // TODO: replace this
 }
 

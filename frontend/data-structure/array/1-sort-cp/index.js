@@ -17,7 +17,13 @@ function sort(arr) {
 }
 
 function rotateLeft(d, arr) {
-    return arr // TODO: replace this
+    let length =arr.length
+    let result = arr.slice(d,length);
+    
+    for(let i = 0; i < d && i < length; i++) {
+        result.push(arr[i])
+    }
+    return result // TODO: replace this
 }
 
 let nums = [4, 5, 2, 1, 3]
