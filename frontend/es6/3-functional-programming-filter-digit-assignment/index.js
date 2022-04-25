@@ -9,8 +9,9 @@
  *
  */
 
-const filterDigit = (array, digit) => {
+const filterDigit = (array, digit) =>{
   // TODO: answer here
+  return array.filter(item => item.toString().length === digit);
 };
 
 module.exports = filterDigit
