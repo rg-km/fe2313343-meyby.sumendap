@@ -14,6 +14,11 @@
 
 function intersection(setA, setB) {
     let result = new Set();
+    for(let a of setA){
+        if(setB.has(a)) {
+        result.add(a)    
+        }
+    }
     return result; // TODO: replace this
 }
 
