@@ -62,7 +62,8 @@ function promiseStarWarsData(url) {
 }
 
 function getDataPeopleByIdWithFilms(peopleId) {
-  // TODO: answer here
-}
+  
+} 
+
 
 module.exports = { getDataPeopleByIdWithFilms };

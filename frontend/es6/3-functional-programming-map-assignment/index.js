@@ -24,6 +24,14 @@
 
 const returnUserAverageScore = (students) => {
   // TODO: answer here
+    const data = EmployeesObject.Employees;
+    const curatedData = data.map(
+      (employee) =>
+      `Name: ${employee.firstName}`
+      `Nilai: ${employee.nilai}`
+    );
+    console.log(curatedData);
+
 };
 
 module.exports = returnUserAverageScore
