@@ -2,6 +2,9 @@
  */
 const getUserFirstName = (user) => {
   // TODO: answer here
+function getuserfirstname({firstName}){
+  return firstName;
+}
 };
 
 console.log(getUserFirstName({ name: "John", email: "john@example.com" }));
