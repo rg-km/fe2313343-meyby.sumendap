@@ -8,6 +8,8 @@
 
 const filterString = (array) => {
   // TODO: answer here
+  
+  
 };
 
 module.exports = filterString
