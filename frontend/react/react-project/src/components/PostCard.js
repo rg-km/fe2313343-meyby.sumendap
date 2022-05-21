@@ -1,54 +1,41 @@
-import React, { useState } from "react"
-import { getSession, auth } from "../api/auth"
-// import { SessionContext } from "../context/SessionContext"
+import "./App.css"
+import React from "react";
+// TODO: answer here
+import Navbar from "./components/Navbar"
+import PostCard from "./components/PostCard"
+import { Route, Routes } from "react-router-dom";
+import Home from "./routes/Home";
+import Profile from "./routes/Profile";
+// import Profile from "./components/Profile"
+// import UploadForm from "./components/UploadForm"
+// import SessionContext from "./context/SessionContext"
 
-export default function Navbar() {
+function App() {
+
   // TODO: answer here
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState({});
-
-  // check user if logged
-  const checkUser = async () => {
-    const session = await getSession();
-    if (session) {
-      setIsLoggedIn(true);
-    } else {
-      setIsLoggedIn(false);
-    }
-  };    
-
-  React.useEffect(() => {
-    checkUser();
-  }, []);
-
   return (
-    <div className="navbar-component" aria-label="Navbar">
-      <div className="navbar-wrapper">
-        <div className="navbar-brand" aria-label="App Logo">
-          <h1>Instagram</h1>
-        </div>
-        <div className="navbar-menu">
-          <ul className="navbar-list">
-            <li className="navbar-item">
-              <a className="navbar-link" aria-label="App Title" href="/">Icon</a>
-            </li>
-            <li className="navbar-item">
-              {
-                isLoggedIn ?
-                  <a className="navbar-link" aria-label="Profile" href="/profile">Profile John Doe</a>
-                  :
-                  <button className="navbar-link" aria-label="Login" onClick={
-                    () => {
-                      auth();
-                    }
-                  }>Login</button>
-
-              }
-            </li>
-          </ul>
-        </div>
-      </div>
+    <div aria-label="App" className="App">
+      <h1 aria-label="App Title">IG Clone</h1>
+      
+    <div className="ImportItem">
+        <Navbar />
+        <PostCard />
     </div>
-  )
+
+    <div className="routes" aria-label="routes">
+
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="Profile" element={<Profile />} />
+    </Routes>
+
+    </div>
+
+
+  </div>
+    
+  );
 }
+
+export default App
