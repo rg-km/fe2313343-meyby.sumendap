@@ -1,39 +1,54 @@
-// TODO: answer here
 import React, { useState } from "react"
-import LikeDislikeButon from "../components/LikeDislikeButton"
+import { getSession, auth } from "../api/auth"
+// import { SessionContext } from "../context/SessionContext"
 
-export default function PostCard({ image, caption, username, userId, date }) {
+export default function Navbar() {
   // TODO: answer here
 
-  const [like] = useState(0);
-  const [dislike] = useState(0);
-  const [isLikedBtn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState({});
+
+  // check user if logged
+  const checkUser = async () => {
+    const session = await getSession();
+    if (session) {
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+    }
+  };    
+
+  React.useEffect(() => {
+    checkUser();
+  }, []);
 
   return (
-    <div className="post-card-component" aria-label="Post Card">
-      <div className="post-card-wrapper">
-        <section className="card-image">
-          <div>
-            <img src={image} alt="Post" aria-label="Post Image"/>
-          </div>
-        </section>
-        <section className="card-button">
-          <LikeDislikeButon likeCount={like} dislikeCount={dislike} isLiked={isLikedBtn}/>
-        </section>
-        <section className="card-detail">
-          <div>
-            <h2 className="card-name" aria-label="Post User Name">{username}</h2>
-          </div>
-          <div>
-            <p className="card-caption" aria-label="Post Caption">{caption}</p>
-          </div>
-        </section>
-        <section className="card-date">
-          <h3 aria-label="Post Date">{date}</h3>
-        </section>
-      </div>  
+    <div className="navbar-component" aria-label="Navbar">
+      <div className="navbar-wrapper">
+        <div className="navbar-brand" aria-label="App Logo">
+          <h1>Instagram</h1>
+        </div>
+        <div className="navbar-menu">
+          <ul className="navbar-list">
+            <li className="navbar-item">
+              <a className="navbar-link" aria-label="App Title" href="/">Icon</a>
+            </li>
+            <li className="navbar-item">
+              {
+                isLoggedIn ?
+                  <a className="navbar-link" aria-label="Profile" href="/profile">Profile John Doe</a>
+                  :
+                  <button className="navbar-link" aria-label="Login" onClick={
+                    () => {
+                      auth();
+                    }
+                  }>Login</button>
+
+              }
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   )
 }
-
-
