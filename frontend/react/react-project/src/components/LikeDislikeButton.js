@@ -1,54 +1,53 @@
-import React, { useState } from "react"
-import { getSession, auth } from "../api/auth"
-// import { SessionContext } from "../context/SessionContext"
+// TODO: answer here
+import React, {useState} from 'react';
 
-export default function Navbar() {
-  // TODO: answer here
+export default function LikeDislikeButton({id, isLiked, isDisliked, likeCount, dislikeCount}) {
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState({});
+    // TODO: answer here
+    const [like, setLike] = useState(likeCount);
+    const [dislike, setDislike] = useState(dislikeCount);
+    const [isLikedState, setIsLiked] = useState(isLiked);
+    const [isDislikedState, setIsDisliked] = useState(isDisliked);
 
-  // check user if logged
-  const checkUser = async () => {
-    const session = await getSession();
-    if (session) {
-      setIsLoggedIn(true);
-    } else {
-      setIsLoggedIn(false);
-    }
-  };    
+    return (    
+        <div className="like-dislike-btn">
+            <div className="like-btn">
+                <button aria-label="Like Button" onClick={() => {
+                    if (isLikedState) {
+                        setIsLiked(false)
+                        setLike(like - 1);
+                    } else if (isDislikedState) {
+                        setIsLiked(true)
+                        setIsDisliked(false)
 
-  React.useEffect(() => {
-    checkUser();
-  }, []);
-
-  return (
-    <div className="navbar-component" aria-label="Navbar">
-      <div className="navbar-wrapper">
-        <div className="navbar-brand" aria-label="App Logo">
-          <h1>Instagram</h1>
-        </div>
-        <div className="navbar-menu">
-          <ul className="navbar-list">
-            <li className="navbar-item">
-              <a className="navbar-link" aria-label="App Title" href="/">Icon</a>
-            </li>
-            <li className="navbar-item">
-              {
-                isLoggedIn ?
-                  <a className="navbar-link" aria-label="Profile" href="/profile">Profile John Doe</a>
-                  :
-                  <button className="navbar-link" aria-label="Login" onClick={
-                    () => {
-                      auth();
+                        setLike(like + 1);
+                        setDislike(dislike - 1);
+                    } else {
+                        setIsLiked(true)
+                        setLike(like + 1);
                     }
-                  }>Login</button>
+                }}>Like</button>
+                <span aria-label="Like Count">{like}</span>
+            </div>
+            <div className="dislike-btn">
+                <button aria-label="Dislike Button" onClick={() => {
+                    if (isDislikedState) {
+                        setIsDisliked (false);
+                        setDislike(dislike - 1);
+                    } else if (isLikedState) {
+                        setIsDisliked (true);
+                        setIsLiked (false);
 
-              }
-            </li>
-          </ul>
+                        setDislike(dislike + 1);
+                        setLike(like - 1);
+                    } else {
+                        setIsDisliked (true);
+                        setDislike(dislike + 1);
+                    }
+                }}>Dislike</button>
+                <span aria-label="Dislike Count">{dislike}</span>
+            </div>
         </div>
-      </div>
-    </div>
-  )
+    )
+    
 }
